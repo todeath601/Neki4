@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/username/project/handlers"
+	"github.com/todeath601/Neki4/server/handlers/"
 )
 
 func main() {
