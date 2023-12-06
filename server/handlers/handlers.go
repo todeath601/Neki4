@@ -6,9 +6,9 @@ import (
 )
 
 type Person struct {
- Name     string json:"name"
- Surname  string json:"surname"
- Age      int    json:"age"
+ Name     string json:`"name"`
+ Surname  string json:`"surname"`
+ Age      int    json:`"age"`
 }
 
 func HandlePerson(w http.ResponseWriter, r *http.Request) {
