@@ -1,12 +1,13 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
-	"github.com/todeath601/Neki4/handlers"
+	"github.com/example/handlers"
 )
 
 func main() {
-	http.HandleFunc("/person", handlers.HandlePerson)
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", handlers.PersonHandler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

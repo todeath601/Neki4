@@ -6,12 +6,12 @@ import (
 )
 
 type Person struct {
-	Name    string `json:"name"`
-	Surname string `json:"surname"`
-	Age     int    `json:"age"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Age       int    `json:"age"`
 }
 
-func HandlePerson(w http.ResponseWriter, r *http.Request) {
+func PersonHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		var person Person
 		err := json.NewDecoder(r.Body).Decode(&person)
@@ -19,7 +19,8 @@ func HandlePerson(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		json.NewEncoder(w).Encode(person)
+		// добавляем обработку персоны в базу данных или еще куда-то
+		w.WriteHeader(http.StatusOK)
 	} else {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
