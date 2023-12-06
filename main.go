@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/todeath601/Neki4/server/handlers"
+)
 
 func main() {
-	fmt.Println("Kto pro4ital tot 3.14door")
+	http.HandleFunc("/person", handlers.HandlePerson)
+	http.ListenAndServe(":8080", nil)
 }
